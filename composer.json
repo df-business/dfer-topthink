@@ -1,7 +1,7 @@
 {
     "name": "dfer/topthink",
-    "description": "ThinkPHP核心软件包",
     "license": "MIT",
+    "description": "ThinkPHP核心软件包",
     "authors": [{
         "name": "df",
         "email": "df_business@qq.com"
