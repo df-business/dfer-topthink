@@ -30,7 +30,7 @@ if (!defined('T_NAME_RELATIVE')) {
  * @param bool|string $domain 域名
  * @return UrlBuild
  */
-function url(string $url = '', array $vars = [], $suffix = true, $domain = false)
+function tp_url(string $url = '', array $vars = [], $suffix = true, $domain = false)
 {
     return Route::buildUrl($url, $vars)->suffix($suffix)->domain($domain)->build();
 }
