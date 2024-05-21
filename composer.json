@@ -1,0 +1,34 @@
+{
+    "name": "dfer/topthink",
+    "description": "ThinkPHP核心软件包",
+    "license": "MIT",
+    "authors": [{
+        "name": "df",
+        "email": "df_business@qq.com"
+    }],
+    "homepage": "http://www.dfer.site",
+    "keywords": ["df", "dfer.site"],
+    "require": {
+        "topthink/framework": "~8.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "dfer\\": "src",
+            "think\\": "think"
+        },
+        "files": [
+            "src/common.php"
+        ],
+        "classmap": [
+            "think/App.php",
+            "think/Console.php",
+            "think/View.php",
+            "think/Route.php",
+            "think/Http.php",
+            "think/route/Rule.php",
+            "think/route/Url.php",
+            "think/route/dispatch/Controller.php",
+            "think/route/dispatch/Url.php"
+        ]
+    }
+}
