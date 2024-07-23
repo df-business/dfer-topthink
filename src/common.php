@@ -22,14 +22,10 @@ use think\facade\Cache;
 define('DFER_ROOT', dirname(__DIR__, 4).DIRECTORY_SEPARATOR);
 // 定义数据目录,可更改此目录
 define('DFER_DATA', DFER_ROOT . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR);
-if (defined('APP_NAMESPACE')) {
-// 定义应用目录
-define('APP_PATH', DFER_ROOT . DIRECTORY_SEPARATOR . APP_NAMESPACE. DIRECTORY_SEPARATOR);
-}
+
 // 定义网站入口目录
-define('WEB_ROOT', DFER_ROOT . DIRECTORY_SEPARATOR . 'tp_public'.DIRECTORY_SEPARATOR);
-// 定义缓存目录
-define('RUNTIME_PATH', DFER_ROOT . '/data/runtime_cli/');
+define('WEB_ROOT', DFER_ROOT . DIRECTORY_SEPARATOR . 'public'.DIRECTORY_SEPARATOR);
+
 
 
 
@@ -2323,14 +2319,10 @@ function dfer_get_app_config_file($app, $file)
         case 'dfer':
             $configFile = dfer_core_path() . "{$file}.php";
             break;
-        case 'swoole':
-            $configFile = DFER_ROOT . "vendor/thinkdfer/dfer-swoole/src/{$file}.php";
-            break;
+
         default:
             $configFile = app_path() . $app . "/{$file}.php";
-            if (!file_exists($configFile)) {
-                $configFile = DFER_ROOT . "vendor/thinkdfer/dfer-app/src/{$app}/{$file}.php";
-            }
+
     }
 
     return $configFile;

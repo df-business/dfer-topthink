@@ -4,17 +4,17 @@
 // +----------------------------------------------------------------------
 
 $commands = [];
-
+$app_path=app()->getAppPath();
 if (PHP_SAPI == 'cli') {
 
     $commands = [
         'cli' => \dfer\console\command\Cli::class
     ];
 
-    $apps = dfer_scan_dir(APP_PATH . '*', GLOB_ONLYDIR);
+    $apps = dfer_scan_dir($app_path . '*', GLOB_ONLYDIR);
 
     foreach ($apps as $app) {
-        $commandFile = APP_PATH . $app . '/command.php';
+        $commandFile = $app_path . $app . '/command.php';
 
         if (file_exists($commandFile)) {
             $mCommands = include $commandFile;

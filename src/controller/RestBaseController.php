@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 namespace dfer\controller;
 
-use dfer\model\UserTokenModel;
+use cmf\model\UserTokenModel;
 use think\App;
 use think\exception\HttpResponseException;
 use think\facade\Db;
@@ -65,7 +65,7 @@ class RestBaseController
         $this->app     = $app ?: app();
         $this->request = $this->app->request;
 
-//        $this->request->root(dfer_get_root() . '/');
+//        $this->request->root(cmf_get_root() . '/');
 
         $this->apiVersion = $this->request->header('XX-Api-Version', '1.1.0');
 
@@ -88,7 +88,6 @@ class RestBaseController
     // 初始化
     protected function initialize()
     {
-        hook('home_init');
     }
 
     private function _initUser()
@@ -317,7 +316,7 @@ class RestBaseController
 
         if (empty($rule->getRule())) {
             $app        = $this->app->http->getName();
-            $controller = dfer_parse_name($this->request->controller());
+            $controller = cmf_parse_name($this->request->controller());
             $action     = $this->request->action(false);
             $routePath  = "$app/$controller/$action";
         } else {

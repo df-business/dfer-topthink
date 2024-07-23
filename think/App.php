@@ -193,16 +193,10 @@ class App extends Container
             $this->bind(include $this->appPath . 'provider.php');
         }
 
-        // 加载cmf-app，cmf-api provider
-        $appRootNamespace   = $this->getRootNamespace();
-        $rootPath           = $this->rootPath;
-        $vendorProviderFile = "{$rootPath}vendor/thinkcmf/cmf-{$appRootNamespace}/src/provider.php";
-        if (is_file($vendorProviderFile)) {
-            $this->bind(include $vendorProviderFile);
-        }
+
 
         // 加载应用 provider
-        $apps = cmf_scan_dir($this->appPath . '*', GLOB_ONLYDIR);
+        $apps = dfer_scan_dir($this->appPath . '*', GLOB_ONLYDIR);
         foreach ($apps as $appName) {
             $appProviderFile = $this->appPath . $appName . DIRECTORY_SEPARATOR . 'provider.php';
             if (is_file($appProviderFile)) {
@@ -599,7 +593,7 @@ class App extends Container
         }
 
         // 动态配置
-        $runtimeConfigPath = CMF_DATA . 'config' . DIRECTORY_SEPARATOR;
+        $runtimeConfigPath = DFER_DATA . 'config' . DIRECTORY_SEPARATOR;
 
         $files = [];
 
@@ -611,15 +605,6 @@ class App extends Container
             $this->config->load($file, pathinfo($file, PATHINFO_FILENAME));
         }
         // 动态配置结束
-
-        // 加载cmf-app，cmf-api事件配置
-        $appRootNamespace = $this->getRootNamespace();
-        $rootPath         = root_path();
-
-        $vendorEventFile = "{$rootPath}vendor/thinkcmf/cmf-{$appRootNamespace}/src/event.php";
-        if (is_file($vendorEventFile)) {
-            $this->loadEvent(include $vendorEventFile);
-        }
 
         if (is_file($appPath . 'event.php')) {
             $this->loadEvent(include $appPath . 'event.php');

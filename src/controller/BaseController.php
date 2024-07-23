@@ -61,10 +61,6 @@ class BaseController
         $this->app     = $app;
         $this->request = $this->app->request;
 
-        // if (!dfer_is_installed() && strpos($this->request->url(), 'install') === false) {
-        //     return $this->redirect(dfer_get_root() . '/?s=install');
-        // }
-
         $this->view = new View($app);
         $this->_initializeView();
 

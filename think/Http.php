@@ -268,7 +268,7 @@ class Http
         }
 
         if ($appRootNamespace == 'api') {
-            $routeFile = "{$rootPath}vendor/thinkcmf/cmf-api/src/route.php";
+            $routeFile = "{$rootPath}{$appRootNamespace}/route.php";
             if (is_file($routeFile)) {
                 include_once $routeFile;
             }

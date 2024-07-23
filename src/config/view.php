@@ -23,7 +23,7 @@ return [
     // 标签库标签结束标记
     'taglib_end'      => '>',
     // 内置标签库名称(标签使用不必指定标签库名称),以逗号分隔 注意解析顺序
-    'taglib_build_in' => '\dfer\lib\taglib\Cmf,cx',
+    'taglib_build_in' => '\dfer\lib\taglib\Dfer,cx',
     // 默认过滤方法 用于普通标签输出
     'default_filter'  => ''
 ];

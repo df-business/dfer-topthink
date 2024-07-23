@@ -40,13 +40,11 @@ use think\console\input\Definition as InputDefinition;
 use think\console\input\Option as InputOption;
 use think\console\Output;
 use think\console\output\driver\Buffer;
-
 /**
  * 控制台应用管理类
  */
 class Console
 {
-
     protected $app;
 
     /** @var Command[] */
@@ -374,7 +372,7 @@ class Console
     public function getLongVersion(): string
     {
         if ($this->app->version()) {
-            return sprintf('<comment>%s</comment>', 'ThinkPHP v' . $this->app->version() . ' & ThinkCMF v' . cmf_version());
+            return sprintf('<comment>%s</comment>', 'ThinkPHP v' . $this->app->version() . ' & DfPHP v' . dfer_version());
         }
 
         return '<info>Console Tool</info>';

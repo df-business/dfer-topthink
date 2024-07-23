@@ -12,7 +12,7 @@ namespace dfer\lib\taglib;
 
 use think\template\TagLib;
 
-class Cmf extends TagLib
+class Dfer extends TagLib
 {
     /**
      * 定义标签列表
